@@ -11,7 +11,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return BlocListener<LoginController, LoginState>(
-      listenWhen: (previous, current)=>previous.status != current.status,
+      bloc: controller,
+      listenWhen: (previous, current) => previous.status != current.status,
       listener: (context, state) {
         if (state.status == LoginStatus.failure) {
           final message = state.errorMessage ?? 'Erro ao realizar login';
