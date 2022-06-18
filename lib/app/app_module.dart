@@ -1,4 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:job_timer/app/core/ui/database/database.dart';
+import 'package:job_timer/app/core/ui/database/database_impl.dart';
 import 'package:job_timer/app/modules/login/login_module.dart';
 import 'package:job_timer/app/modules/services/auth/auth_service.dart';
 import 'package:job_timer/app/modules/services/auth/auth_service_impl.dart';
@@ -10,6 +12,7 @@ class AppModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.lazySingleton<AuthService>((i) => AuthServiceImpl()),
+        Bind.lazySingleton<Database>((i) => DatabaseImpl()),
       ];
 
   @override
