@@ -28,6 +28,9 @@ class AppConfigUI {
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.red),
       ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+      ),
       labelStyle: TextStyle(color: Colors.black),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(

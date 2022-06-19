@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:isar/isar.dart';
+import 'package:job_timer/app/entities/project_status.dart';
 
 import '../../core/exceptions/failure.dart';
 import '../../core/ui/database/database.dart';
@@ -26,5 +27,14 @@ class ProjectRepositoryImpl implements ProjectRepository {
       log('Erro ao cadastrar projeto, error: $e, stack: $s');
       throw Failure(message: 'Erro ao cadastrar projeto');
     }
+  }
+
+  @override
+  Future<List<Project>> findByStatus(ProjectStatus status) async {
+    final connection = await _database.openConnection();
+
+    final projects =
+        await connection.projects.filter().statusEqualTo(status).findAll();
+    return projects;
   }
 }
